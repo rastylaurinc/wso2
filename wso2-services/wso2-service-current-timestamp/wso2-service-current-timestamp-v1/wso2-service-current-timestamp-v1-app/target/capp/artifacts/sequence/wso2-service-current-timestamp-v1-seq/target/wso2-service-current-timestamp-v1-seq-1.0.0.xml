@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="wso2-service-current-timestamp-v1-seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <log description="log: start">
+        <property name="message" value="[wso2-service-current-timestamp-v1-seq] sequence started"/>
+    </log>
+    <property description="get current timestamp" expression="get-property('SYSTEM_DATE', 'yyyy-MM-dd HH:mm:ss.SSS')" name="CURRENT_TIMESTAMP" scope="default" type="STRING"/>
+    <payloadFactory media-type="json">
+        <format>
+            {
+				"result": "ok"
+				"current-time": "$1"
+            }
+        </format>
+        <args>
+            <arg evaluator="xml" expression="$ctx:CURRENT_TIMESTAMP"/>
+        </args>
+    </payloadFactory>
+    <log description="log: finish">
+        <property name="message" value="[wso2-service-current-timestamp-v1-seq] sequence completed, timestamp: ', $ctx:CURRENT_TIMESTAMP)"/>
+    </log>
+</sequence>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="wso2-service-ping-v1-seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <log description="log: start">
+        <property name="message" value="[wso2-service-ping-v1-seq] sequence started"/>
+    </log>
+    <payloadFactory description="create response payload" media-type="json">
+        <format>
+            {
+            	"result": "ok"
+            }
+        </format>
+        <args/>
+    </payloadFactory>
+    <log description="log: finish">
+        <property name="message" value="[wso2-service-ping-v1-seq] sequence completed"/>
+    </log>
+</sequence>
