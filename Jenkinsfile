@@ -5,7 +5,8 @@ pipeline {
       steps {
         echo 'WSO2 Service Build started'
         sh '''cd wso2-services
-mvn clean install'''
+#mvn clean install
+whoami'''
         echo 'WSO2 Service Build completed successfully'
       }
     }
