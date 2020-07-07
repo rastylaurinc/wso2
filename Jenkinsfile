@@ -13,8 +13,8 @@ mvn clean install'''
     stage('WSO2 Docker Image Build') {
       steps {
         echo 'WSO2 Docker Image Build started'
-        sh '''pwd
-ls -l'''
+        sh '''cd wso2-docker-images
+mvn clean install'''
         echo 'WSO2 Docker Image Build completed successfully'
       }
     }
