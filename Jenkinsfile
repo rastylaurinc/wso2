@@ -14,7 +14,7 @@ mvn clean install'''
       steps {
         echo 'WSO2 Docker Image Build started'
         sh '''pwd
-cd wso2-docker-images'''
+ls -l'''
         echo 'WSO2 Docker Image Build completed successfully'
       }
     }
