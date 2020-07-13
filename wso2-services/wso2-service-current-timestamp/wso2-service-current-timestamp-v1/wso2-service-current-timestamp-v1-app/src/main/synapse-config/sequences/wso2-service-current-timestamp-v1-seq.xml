@@ -6,10 +6,10 @@
     <property description="get current timestamp" expression="get-property('SYSTEM_DATE', 'yyyy-MM-dd HH:mm:ss.SSS')" name="CURRENT_TIMESTAMP" scope="default" type="STRING"/>
     <payloadFactory media-type="json">
         <format>
-            {
-				"result": "ok"
-				"current-time": "$1"
-            }
+{
+  "result": "ok",
+  "current-time": "$1"
+}
         </format>
         <args>
             <arg evaluator="xml" expression="$ctx:CURRENT_TIMESTAMP"/>
