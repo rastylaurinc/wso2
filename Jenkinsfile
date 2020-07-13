@@ -19,5 +19,11 @@ mvn clean install'''
       }
     }
 
+    stage('WSO2 Docker Image Run') {
+      steps {
+        echo 'WSO2 Docker Image Run triggered'
+      }
+    }
+
   }
 }
