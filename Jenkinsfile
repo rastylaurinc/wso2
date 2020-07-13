@@ -4,8 +4,7 @@ pipeline {
     stage('WSO2 Service Build') {
       steps {
         echo 'WSO2 Service Build started'
-        sh '''whoami
-cd wso2-services
+        sh '''cd wso2-services
 mvn clean install'''
         echo 'WSO2 Service Build completed successfully'
       }
