@@ -1,0 +1,26 @@
+**/target
+
+**/CompositeApps
+
+**/.settings
+
+**/.meta
+
+**/.car
+
+*.class
+
+# Maven
+bin/
+
+# Logs
+*.log
+
+# WSO2 files
+.metadata/
+.recommenders/
+.tmp/
+
+# Eclipse Classpath (Class Mediator)
+**/*-cm/.classpath
+
