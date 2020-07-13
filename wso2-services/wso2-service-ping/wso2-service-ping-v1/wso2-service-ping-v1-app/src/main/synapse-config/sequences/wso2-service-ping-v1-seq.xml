@@ -6,7 +6,7 @@
     <payloadFactory description="create response payload" media-type="json">
         <format>
             {
-            	"result": "ok"
+            	"result": "okis"
             }
         </format>
         <args/>
