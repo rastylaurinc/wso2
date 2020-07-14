@@ -116,7 +116,7 @@
               <goal>push</goal>
             </goals>
             <configuration>
-              <repository>rastylaurinc/training-repo</repository>
+              <repository>rastylaurinc/wso2-images</repository>
               <tag>latest</tag>
             </configuration>
           </execution>

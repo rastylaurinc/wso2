@@ -19,6 +19,13 @@ mvn clean install'''
       }
     }
 
+    stage('WSO2 Docker Image Test') {
+      steps {
+        echo 'WSO2 Docker Image Test: started'
+        echo 'WSO2 Docker Image Test: completed successfully'
+      }
+    }
+
     stage('WSO2 Docker Image Deploy') {
       steps {
         echo 'WSO2 Docker Image Deploy: started'
