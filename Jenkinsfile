@@ -6,6 +6,7 @@ pipeline {
         echo 'WSO2 Service Build: started'
         sh '''cd wso2-services
 mvn clean install'''
+        sh './deployment-scripts/set-deployment-context.sh'
         echo 'WSO2 Service Build: completed successfully'
       }
     }
