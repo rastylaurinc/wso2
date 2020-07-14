@@ -4,7 +4,6 @@ pipeline {
     stage('WSO2 Service Build') {
       steps {
         echo 'WSO2 Service Build: started'
-        sh './deployment-scripts/set-deployment-context.sh'
         sh '''cd wso2-services
 mvn clean install'''
         echo 'WSO2 Service Build: completed successfully'
@@ -41,5 +40,9 @@ mvn clean install'''
   environment {
     DOCKER_ORG = 'rastylaurinc'
     DOCKER_REPOSITORY = 'wso2-images'
+    WSO2_HTTP_PORT_TEST = '8289'
+    WSO2_HTTP_PORT_PROD = '8290'
+    WSO2_HTTPS_PORT_TEST = '8252'
+    WSO2_HTTPS_PORT_PROD = '8253'
   }
 }
