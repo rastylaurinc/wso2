@@ -22,6 +22,7 @@ mvn clean install'''
     stage('WSO2 Docker Image Test') {
       steps {
         echo 'WSO2 Docker Image Test: started'
+        sh './deployment-scripts/execute-deployment-check.sh $ASSERTIBLE_ACCESS_TOKEN $ASSERTIBLE_SERVICE_ID test'
         echo 'WSO2 Docker Image Test: completed successfully'
       }
     }
@@ -38,11 +39,13 @@ mvn clean install'''
 
   }
   environment {
-    DOCKER_ORG = 'rastylaurinc'
+    DOCKER_ORGANIZATION = 'rastylaurinc'
     DOCKER_REPOSITORY = 'wso2-images'
     WSO2_HTTP_PORT_TEST = '8289'
     WSO2_HTTP_PORT_PROD = '8290'
     WSO2_HTTPS_PORT_TEST = '8252'
     WSO2_HTTPS_PORT_PROD = '8253'
+    ASSERTIBLE_ACCESS_TOKEN = 'MbbLai3DWIbBaIOo'
+    ASSERTIBLE_SERVICE_ID = 'a819678d-02db-44a4-afca-5583a1084620'
   }
 }
