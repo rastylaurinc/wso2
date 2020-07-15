@@ -26,6 +26,7 @@ mvn clean install'''
         echo 'TEST - WSO2 Docker Image: test environment undeployed'
         sh './deployment-scripts/deploy-wso2-docker-image.sh test $WSO2_HTTP_PORT_TEST $WSO2_HTTPS_PORT_TEST $DOCKER_ORGANIZATION $DOCKER_REPOSITORY'
         echo 'TEST - WSO2 Docker Image: test environment deployment successful'
+        sleep 30
         sh './deployment-scripts/execute-deployment-check.sh test $ASSERTIBLE_ACCESS_TOKEN $ASSERTIBLE_SERVICE_ID'
         echo 'TEST - WSO2 Docker Image: tests passed'
         echo 'TEST - WSO2 Docker Image: completed successfully'
