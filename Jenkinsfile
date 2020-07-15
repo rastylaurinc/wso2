@@ -1,29 +1,34 @@
 pipeline {
   agent any
   stages {
-    stage('WSO2 Service Build') {
+    stage('BUILD - WSO2 Service') {
       steps {
-        echo 'WSO2 Service Build: started'
+        echo 'BUILD - WSO2 Service: started'
         sh '''cd wso2-services
 mvn clean install'''
-        echo 'WSO2 Service Build: completed successfully'
+        echo 'BUILD - WSO2 Service: completed successfully'
       }
     }
 
-    stage('WSO2 Docker Image Build') {
+    stage('BUILD - WSO2 Docker Image') {
       steps {
-        echo 'WSO2 Docker Image Build: started'
+        echo 'BUILD - WSO2 Docker Image: started'
         sh '''cd wso2-docker-images
 mvn clean install'''
-        echo 'WSO2 Docker Image Build: completed successfully'
+        echo 'BUILD - WSO2 Docker Image: completed successfully'
       }
     }
 
-    stage('WSO2 Docker Image Test') {
+    stage('TEST - WSO2 Docker Image') {
       steps {
-        echo 'WSO2 Docker Image Test: started'
+        echo 'TEST - WSO2 Docker Image: started'
+        sh './deployment-scripts/undeploy-docker-container.sh test'
+        echo 'TEST - WSO2 Docker Image: test environment undeployed'
+        echo 'TEST - WSO2 Docker Image: test environment deployment successful'
         sh './deployment-scripts/execute-deployment-check.sh test $ASSERTIBLE_ACCESS_TOKEN $ASSERTIBLE_SERVICE_ID'
-        echo 'WSO2 Docker Image Test: completed successfully'
+        echo 'TEST - WSO2 Docker Image: tests passed'
+        echo 'TEST - WSO2 Docker Image: completed successfully'
+        sh './deployment-scripts/deploy-wso2-docker-image.sh test $WSO2_HTTP_PORT_TEST $WSO2_HTTPS_PORT_TEST $DOCKER_ORGANIZATION $DOCKER_REPOSITORY'
       }
     }
 
