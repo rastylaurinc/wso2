@@ -6,7 +6,6 @@ pipeline {
         echo 'WSO2 Service Build: started'
         sh '''cd wso2-services
 mvn clean install'''
-        sh './deployment-scripts/set-deployment-context.sh'
         echo 'WSO2 Service Build: completed successfully'
       }
     }
@@ -32,10 +31,18 @@ mvn clean install'''
         echo 'WSO2 Docker Image Deploy: started'
         sh 'docker rm -f $(docker ps -a -q)'
         echo 'WSO2 Docker Image Deploy: obsolete image removed'
-        sh 'docker run -itd -p 8290:8290 -p 8253:8253 --name wso2-service rastylaurinc/training-repo'
+        sh 'docker run -itd -p 8290:8290 -p 8253:8253 --name wso2-service rastylaurinc/wso2-images'
         echo 'WSO2 Docker Image Deploy: completed successfully'
       }
     }
 
+  }
+  environment {
+    DOCKER_ORG = 'rastylaurinc'
+    DOCKER_REPOSITORY = 'wso2-images'
+    WSO2_HTTP_PORT_TEST = '8289'
+    WSO2_HTTP_PORT_PROD = '8290'
+    WSO2_HTTPS_PORT_TEST = '8252'
+    WSO2_HTTPS_PORT_PROD = '8253'
   }
 }
