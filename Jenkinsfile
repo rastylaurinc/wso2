@@ -33,13 +33,17 @@ mvn clean install'''
       }
     }
 
-    stage('WSO2 Docker Image Deploy') {
+    stage('DEPLOY - WSO2 Docker Image') {
       steps {
-        echo 'WSO2 Docker Image Deploy: started'
-        sh 'docker rm -f $(docker ps -a -q)'
-        echo 'WSO2 Docker Image Deploy: obsolete image removed'
-        sh 'docker run -itd -p 8290:8290 -p 8253:8253 --name wso2-service rastylaurinc/wso2-images'
-        echo 'WSO2 Docker Image Deploy: completed successfully'
+        echo 'DEPLOY - WSO2 Docker Image: started'
+        sh './deployment-scripts/undeploy-docker-container.sh production'
+        echo 'DEPLOY - WSO2 Docker Image: production environment undeployed'
+        sh './deployment-scripts/deploy-wso2-docker-image.sh production $WSO2_HTTP_PORT_PROD $WSO2_HTTPS_PORT_PROD $DOCKER_ORGANIZATION $DOCKER_REPOSITORY'
+        echo 'DEPLOY - WSO2 Docker Image: completed successfully'
+        sleep 30
+        sh './deployment-scripts/execute-deployment-check.sh production $ASSERTIBLE_ACCESS_TOKEN $ASSERTIBLE_SERVICE_ID'
+        echo 'DEPLOY - WSO2 Docker Image: production tests passed'
+        echo 'DEPLOY - WSO2 Docker Image: production environment deployment successful'
       }
     }
 
