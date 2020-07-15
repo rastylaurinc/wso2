@@ -5,9 +5,9 @@
     </log>
     <payloadFactory description="create response payload" media-type="json">
         <format>
-            {
-            	"result": "okis"
-            }
+{
+  "result": "ok"
+}
         </format>
         <args/>
     </payloadFactory>
