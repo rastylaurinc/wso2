@@ -22,7 +22,7 @@ mvn clean install'''
     stage('WSO2 Docker Image Test') {
       steps {
         echo 'WSO2 Docker Image Test: started'
-        sh './deployment-scripts/execute-deployment-check.sh $ASSERTIBLE_ACCESS_TOKEN $ASSERTIBLE_SERVICE_ID test'
+        sh './deployment-scripts/execute-deployment-check.sh test $ASSERTIBLE_ACCESS_TOKEN $ASSERTIBLE_SERVICE_ID'
         echo 'WSO2 Docker Image Test: completed successfully'
       }
     }
