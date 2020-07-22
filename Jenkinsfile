@@ -46,6 +46,7 @@ pipeline {
         echo 'DEPLOY - WSO2 Docker Image: production environment deployment successful'
       }
     }
+
   }
   environment {
     DOCKER_ORGANIZATION = 'rastylaurinc'
@@ -56,5 +57,6 @@ pipeline {
     WSO2_HTTPS_PORT_PROD = '8253'
     ASSERTIBLE_ACCESS_TOKEN = 'MbbLai3DWIbBaIOo'
     ASSERTIBLE_SERVICE_ID = 'a819678d-02db-44a4-afca-5583a1084620'
+    ASK_MILAN_ABOUT_THIS = '0'
   }
 }
