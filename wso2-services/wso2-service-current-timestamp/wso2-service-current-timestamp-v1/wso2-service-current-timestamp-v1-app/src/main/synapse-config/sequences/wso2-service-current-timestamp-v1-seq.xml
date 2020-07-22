@@ -3,7 +3,7 @@
     <log description="log: start">
         <property name="message" value="[wso2-service-current-timestamp-v1-seq] sequence started"/>
     </log>
-    <property description="get current timestamp" expression="get-property('SYSTEM_DATE', 'yy-MM-dd HH:mm:ss.SSS')" name="CURRENT_TIMESTAMP" scope="default" type="STRING"/>
+    <property description="get current timestamp" expression="get-property('SYSTEM_DATE', 'yyyy-MM-dd HH:mm:ss.SSS')" name="CURRENT_TIMESTAMP" scope="default" type="STRING"/>
     <payloadFactory media-type="json">
         <format>
 {
