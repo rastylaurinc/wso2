@@ -1,0 +1,108 @@
+{
+	"info": {
+		"_postman_id": "b223d6f9-1d3d-42e3-8dab-f9e7d992ec29",
+		"name": "deployment-tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Assertible - Production environment test",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "MbbLai3DWIbBaIOo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"service\": \"a819678d-02db-44a4-afca-5583a1084620\",\n    \"environment\": \"production\",\n    \"version\": \"v1\",\n    \"wait\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://assertible.com/deployments",
+					"protocol": "https",
+					"host": [
+						"assertible",
+						"com"
+					],
+					"path": [
+						"deployments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Assertible - Test environment test",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "MbbLai3DWIbBaIOo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"service\": \"a819678d-02db-44a4-afca-5583a1084620\",\n    \"environment\": \"test\",\n    \"version\": \"v1\",\n    \"wait\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://assertible.com/deployments",
+					"protocol": "https",
+					"host": [
+						"assertible",
+						"com"
+					],
+					"path": [
+						"deployments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Production - call /services/ping",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Production - call /services/current-timestamp",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
