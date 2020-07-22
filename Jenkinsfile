@@ -5,7 +5,7 @@ pipeline {
       steps {
         echo 'BUILD - WSO2 Service: started'
         sh '''cd wso2-services
-mvn clean install'''
+              mvn clean install'''
         echo 'BUILD - WSO2 Service: completed successfully'
       }
     }
@@ -14,7 +14,7 @@ mvn clean install'''
       steps {
         echo 'BUILD - WSO2 Docker Image: started'
         sh '''cd wso2-docker-images
-mvn clean install'''
+              mvn clean install'''
         echo 'BUILD - WSO2 Docker Image: completed successfully'
       }
     }
@@ -46,7 +46,6 @@ mvn clean install'''
         echo 'DEPLOY - WSO2 Docker Image: production environment deployment successful'
       }
     }
-
   }
   environment {
     DOCKER_ORGANIZATION = 'rastylaurinc'
